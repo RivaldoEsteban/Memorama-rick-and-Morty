@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/Memorama-rick-and-Morty/static/css/main.ae3fac24.chunk.css",
-    "main.js": "/Memorama-rick-and-Morty/static/js/main.65f3e456.chunk.js",
-    "main.js.map": "/Memorama-rick-and-Morty/static/js/main.65f3e456.chunk.js.map",
-    "runtime-main.js": "/Memorama-rick-and-Morty/static/js/runtime-main.6c90d5b6.js",
-    "runtime-main.js.map": "/Memorama-rick-and-Morty/static/js/runtime-main.6c90d5b6.js.map",
-    "static/js/2.08a850e5.chunk.js": "/Memorama-rick-and-Morty/static/js/2.08a850e5.chunk.js",
-    "static/js/2.08a850e5.chunk.js.map": "/Memorama-rick-and-Morty/static/js/2.08a850e5.chunk.js.map",
-    "static/js/3.c606fe47.chunk.js": "/Memorama-rick-and-Morty/static/js/3.c606fe47.chunk.js",
-    "static/js/3.c606fe47.chunk.js.map": "/Memorama-rick-and-Morty/static/js/3.c606fe47.chunk.js.map",
+    "main.css": "/Memorama-rick-and-Morty/static/css/main.0e1ce0b7.chunk.css",
+    "main.js": "/Memorama-rick-and-Morty/static/js/main.2c9de45d.chunk.js",
+    "main.js.map": "/Memorama-rick-and-Morty/static/js/main.2c9de45d.chunk.js.map",
+    "runtime-main.js": "/Memorama-rick-and-Morty/static/js/runtime-main.91957fec.js",
+    "runtime-main.js.map": "/Memorama-rick-and-Morty/static/js/runtime-main.91957fec.js.map",
+    "static/js/2.eeac426c.chunk.js": "/Memorama-rick-and-Morty/static/js/2.eeac426c.chunk.js",
+    "static/js/2.eeac426c.chunk.js.map": "/Memorama-rick-and-Morty/static/js/2.eeac426c.chunk.js.map",
+    "static/js/3.5f8e3c5e.chunk.js": "/Memorama-rick-and-Morty/static/js/3.5f8e3c5e.chunk.js",
+    "static/js/3.5f8e3c5e.chunk.js.map": "/Memorama-rick-and-Morty/static/js/3.5f8e3c5e.chunk.js.map",
     "index.html": "/Memorama-rick-and-Morty/index.html",
-    "static/css/main.ae3fac24.chunk.css.map": "/Memorama-rick-and-Morty/static/css/main.ae3fac24.chunk.css.map",
-    "static/js/2.08a850e5.chunk.js.LICENSE.txt": "/Memorama-rick-and-Morty/static/js/2.08a850e5.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/Memorama-rick-and-Morty/static/media/logo.6ce24c58.svg"
+    "static/css/main.0e1ce0b7.chunk.css.map": "/Memorama-rick-and-Morty/static/css/main.0e1ce0b7.chunk.css.map",
+    "static/js/2.eeac426c.chunk.js.LICENSE.txt": "/Memorama-rick-and-Morty/static/js/2.eeac426c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Memorama-rick-and-Morty/static/media/backfground.4b9a43cc.png",
+    "static/media/style.css": "/Memorama-rick-and-Morty/static/media/icomoon.fd09d3df.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6c90d5b6.js",
-    "static/js/2.08a850e5.chunk.js",
-    "static/css/main.ae3fac24.chunk.css",
-    "static/js/main.65f3e456.chunk.js"
+    "static/js/runtime-main.91957fec.js",
+    "static/js/2.eeac426c.chunk.js",
+    "static/css/main.0e1ce0b7.chunk.css",
+    "static/js/main.2c9de45d.chunk.js"
   ]
 }
