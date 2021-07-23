@@ -1,3 +1,15 @@
+<div align="center">
+<img width="120px"  src="https://raw.githubusercontent.com/no-te-rindas/logo/main/Logo/LeonidasEsteban-destello-envolvente-cuadrada.png" />
+</div>
+
+# Memorama Rick & Morty
+
+Viaja entre distintas dimensiones aplicando tus conocimientos de código y diviértete construyendo este genial memorama de Rick & Morty.
+
+## Desktop
+
+<img width="400px"  src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/Memorama%20Rick%20%26%20Morty/Desktop-Memorama.png" />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

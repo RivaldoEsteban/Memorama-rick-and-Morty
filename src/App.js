@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, createContext, useEffect } from "react";
+import "./style.css";
+import getCharacters from "./services/getCharacters";
+import StartGameModal from "./components/start-game-modal";
+import HomePage from "./components/home-page";
+import styled from "styled-components";
+
+const AppStyled = styled.div`
+  .wrapper {
+    max-width: 1366px;
+    margin: auto;
+  }
+`;
+export const Context = createContext();
 
 function App() {
+  const [characters, setCharacters] = useState();
+  const [play, setPlay] = useState(false);
+  const charactersAPI = getCharacters(1, 2, 3, 4, 5, 6, 7, 8);
+  useEffect(() => {
+    charactersAPI
+      .then((character) => {
+        setCharacters(character);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider
+      value={{
+        value: characters,
+        setCharacters,
+      }}
+    >
+      <AppStyled id="page">
+        {play ? <HomePage /> : <StartGameModal setPlay={setPlay} />}
+      </AppStyled>
+    </Context.Provider>
   );
 }
 
