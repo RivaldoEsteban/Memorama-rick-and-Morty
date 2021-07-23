@@ -4,7 +4,6 @@ import getCharacters from "./services/getCharacters";
 import StartGameModal from "./components/start-game-modal";
 import HomePage from "./components/home-page";
 import styled from "styled-components";
-
 const AppStyled = styled.div`
   .wrapper {
     max-width: 1366px;
@@ -17,6 +16,7 @@ function App() {
   const [characters, setCharacters] = useState();
   const [play, setPlay] = useState(false);
   const charactersAPI = getCharacters(1, 2, 3, 4, 5, 6, 7, 8);
+
   useEffect(() => {
     charactersAPI
       .then((character) => {
@@ -30,6 +30,7 @@ function App() {
     <Context.Provider
       value={{
         value: characters,
+        ref: {},
         setCharacters,
       }}
     >

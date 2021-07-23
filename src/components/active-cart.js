@@ -7,6 +7,7 @@ const ActiveCartStyled = styled.div`
   border-radius: 0.5rem;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
   > * {
     height: 50%;
     box-sizing: border-box;
@@ -72,31 +73,31 @@ const ActiveCartStyled = styled.div`
   }
 `;
 
-function ActiveCart({ characterData, setCardActive }) {
-  console.log(characterData[0]);
+function ActiveCart({ character, setHidden }) {
   function handleCard() {
-    setCardActive(false);
+    console.log("hola");
+    setHidden(false);
   }
   return (
     <ActiveCartStyled
       className="animate__animated animate__flipInY"
       onClick={handleCard}
     >
-      <button>{characterData[0].species}</button>
-      <img className="image-personage" src={characterData[0].image} alt="" />
+      <button>{character.species}</button>
+      <img className="image-personage" src={character.image} alt="" />
       <div className="information">
-        <h3>{characterData[0].name}</h3>
+        <h3>{character.name}</h3>
         <div>
           <i className="icon-user user"></i>
-          <p>{characterData[0].gender}</p>
+          <p>{character.gender}</p>
         </div>
         <div>
           <i className="icon-status status"></i>
-          <p>{characterData[0].status}</p>
+          <p>{character.status}</p>
         </div>
         <div>
           <i className="icon-point point"></i>
-          <p>{characterData[0].origin.name}</p>
+          <p>{character.origin.name}</p>
         </div>
       </div>
     </ActiveCartStyled>

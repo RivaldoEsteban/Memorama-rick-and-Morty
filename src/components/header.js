@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import styled from "styled-components";
+import { Context } from "../App";
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -39,6 +40,12 @@ const HeaderStyled = styled.header`
 `;
 
 function Header() {
+  const context = useContext(Context);
+  const lives = useRef(null);
+  const points = useRef(null);
+  useEffect(() => {
+    context.ref = { points: points.current, lives: lives.current };
+  });
   return (
     <HeaderStyled>
       <img
@@ -49,14 +56,14 @@ function Header() {
       <div className="points">
         <div>
           <i className="icon-money"></i>
-          <p>
-            $<b>000</b>
+          <p className="animate__animated animate__heartBeat">
+            $<b ref={points}>300</b>
           </p>
         </div>
         <div>
           <i className="icon-heart"></i>
-          <p>
-            x<b>3</b>
+          <p className="animate__animated animate__heartBeat">
+            x<b ref={lives}>3</b>
           </p>
         </div>
       </div>

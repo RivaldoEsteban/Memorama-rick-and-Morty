@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "./header";
 import Main from "./main";
+import CorrectSelectionStyled from "./correct-selection";
+import IncorrectSelect from "./incorrect-select";
 
 const HomePageStyled = styled.div`
   padding: 20px;
@@ -13,6 +15,8 @@ const HomePageStyled = styled.div`
 function HomePage() {
   return (
     <HomePageStyled>
+      <CorrectSelectionStyled />
+      <IncorrectSelect />
       <div className="wrapper">
         <Header />
         <Main />
