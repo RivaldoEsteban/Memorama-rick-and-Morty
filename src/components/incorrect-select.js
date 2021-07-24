@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ButtonStyled } from "./button";
 import { Context } from "../App";
@@ -19,6 +19,8 @@ const IncorrectSelectStyled = styled.div`
   left: calc(50% - (36.87rem / 2));
   z-index: 5;
   box-sizing: border-box;
+  display: none;
+
   h2 {
     font: var(--subtitle1);
   }
@@ -34,8 +36,13 @@ const IncorrectSelectStyled = styled.div`
   }
 `;
 
-function IncorrectSelect() {
+function IncorrectSelect({ setActiveCart }) {
   const context = useContext(Context);
+  const incorrect = useRef(null);
+  useEffect(() => {
+    context.modal = { ...context.modal, incorrect };
+  }, [incorrect]);
+
   function handleCLick() {
     const modal = document.getElementById("incorrect");
     if (
@@ -46,17 +53,15 @@ function IncorrectSelect() {
       context.ref.lives.textContent = Number(context.ref.lives.textContent) - 1;
       context.ref.points.textContent =
         Number(context.ref.points.textContent) - 100;
+      setActiveCart(false);
     }
-    console.log(Number(context.ref.points.textContent));
-    // if(){
-    Number(context.ref.points.textContent);
-    // }
-    // modal.style.display = "none";
   }
   return (
-    <IncorrectSelectStyled onClick={handleCLick} id="incorrect">
+    <IncorrectSelectStyled onClick={handleCLick} id="incorrect" ref={incorrect}>
       <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
-      <h2>¡Cuidado!, ese no es el par correcto.</h2>
+      <h2>
+        ¡Cuidado!, ese no es el par correcto. Perdiste 100 puntos y una vida.
+      </h2>
       <ButtonStyled>continuar</ButtonStyled>
     </IncorrectSelectStyled>
   );

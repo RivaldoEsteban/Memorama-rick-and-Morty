@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import HiddenCart from "./hidden-card";
-import ActiveCart from "./active-cart";
 import { Context } from "../App";
+import Cart from "./cart";
 
 const MainStyled = styled.main`
   margin: 50px 0;
@@ -22,18 +21,30 @@ const MainStyled = styled.main`
 
 function Main() {
   const context = useContext(Context);
-  const arrayUntidy = context.value.sort(() => Math.random() - 0.5);
-  console.log(arrayUntidy);
-  const [cardActive, setCardActive] = useState("id");
-  console.log(cardActive);
+  const [playActions, setPlayActions] = useState([]);
+  // const random = context.value.sort(() => Math.random() - 0.5);
+  const random = context.value;
+  console.log(playActions);
+
   return (
     <MainStyled>
-      {arrayUntidy.map((character) => {
+      {random.map((character) => {
         return (
-          <HiddenCart
+          <Cart
             key={character.id}
             character={character}
-            setCardActive={setCardActive}
+            setPlayActions={setPlayActions}
+            playActions={playActions}
+          />
+        );
+      })}
+      {random.map((character) => {
+        return (
+          <Cart
+            key={character.id}
+            character={character}
+            setPlayActions={setPlayActions}
+            playActions={playActions}
           />
         );
       })}

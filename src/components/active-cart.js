@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import IncorrectSelect from "./incorrect-select";
+import CorrectSelection from "./correct-selection";
+import { Context } from "../App";
 
 const ActiveCartStyled = styled.div`
   inline-size: 17.5rem;
@@ -73,34 +76,62 @@ const ActiveCartStyled = styled.div`
   }
 `;
 
-function ActiveCart({ character, setHidden }) {
+function ActiveCart({ character, setActiveCart, setPlayActions, playActions }) {
+  const context = useContext(Context);
+  const [modal, setModal] = useState();
+  // const win = context.modal.win.current;
+  const lose = context.modal.lose.current;
+  const correct = context.modal.correct.current;
+  const incorrect = context.modal.incorrect.current;
+  if (Number(context.ref.lives.textContent) === 0) {
+    setActiveCart(false);
+    setPlayActions([]);
+    lose.style.display = "flex";
+  }
+
+  if (playActions.length === 2) {
+    const element1 = playActions[0];
+    const element2 = playActions[1];
+    if (element1 === element2) {
+      console.log("ganaste");
+      setPlayActions([]);
+      correct.style.display = "flex";
+    } else {
+      incorrect.style.display = "flex";
+      playActions.shift();
+      console.log("perdiste");
+    }
+  }
   function handleCard() {
-    console.log("hola");
-    setHidden(false);
+    // setActiveCart(false);
   }
   return (
-    <ActiveCartStyled
-      className="animate__animated animate__flipInY"
-      onClick={handleCard}
-    >
-      <button>{character.species}</button>
-      <img className="image-personage" src={character.image} alt="" />
-      <div className="information">
-        <h3>{character.name}</h3>
-        <div>
-          <i className="icon-user user"></i>
-          <p>{character.gender}</p>
+    <>
+      <CorrectSelection setActiveCart={setActiveCart} />
+      <IncorrectSelect setActiveCart={setActiveCart} />
+      <ActiveCartStyled
+        className="animate__animated animate__flipInY"
+        onClick={handleCard}
+      >
+        <button>{character.species}</button>
+        <img className="image-personage" src={character.image} alt="" />
+        <div className="information">
+          <h3>{character.name}</h3>
+          <div>
+            <i className="icon-user user"></i>
+            <p>{character.gender}</p>
+          </div>
+          <div>
+            <i className="icon-status status"></i>
+            <p>{character.status}</p>
+          </div>
+          <div>
+            <i className="icon-point point"></i>
+            <p>{character.origin.name}</p>
+          </div>
         </div>
-        <div>
-          <i className="icon-status status"></i>
-          <p>{character.status}</p>
-        </div>
-        <div>
-          <i className="icon-point point"></i>
-          <p>{character.origin.name}</p>
-        </div>
-      </div>
-    </ActiveCartStyled>
+      </ActiveCartStyled>
+    </>
   );
 }
 

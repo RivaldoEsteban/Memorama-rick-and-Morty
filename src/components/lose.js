@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ButtonStyled } from "./button";
 import { Context } from "../App";
@@ -19,6 +19,7 @@ const LoseStyled = styled.div`
   left: calc(50% - (36.87rem / 2));
   z-index: 5;
   box-sizing: border-box;
+  display: none;
   h2 {
     font: var(--subtitle1);
   }
@@ -36,12 +37,21 @@ const LoseStyled = styled.div`
 
 function Lose() {
   const context = useContext(Context);
+  const lose = useRef(null);
+  useEffect(() => {
+    context.modal = { ...context.modal, lose };
+  }, [lose]);
 
+  function handleClick() {
+    context.ref.lives.textContent = 3;
+    context.ref.points.textContent = 300;
+    lose.current.style.display = "none";
+  }
   return (
-    <LoseStyled>
+    <LoseStyled ref={lose}>
       <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
       <h2>Te has quedado sin vidas.</h2>
-      <ButtonStyled>Volver a jugar</ButtonStyled>
+      <ButtonStyled onClick={handleClick}>Volver a jugar</ButtonStyled>
     </LoseStyled>
   );
 }

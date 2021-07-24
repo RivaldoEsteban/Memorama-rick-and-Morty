@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import ActiveCart from "./active-cart";
 
@@ -10,23 +10,17 @@ const CardStyled = styled.div`
   cursor: pointer;
 `;
 
-function HiddenCart({ characterData, setCardActive, character }) {
-  const [hidden, setHidden] = useState(false);
+function HiddenCart({ character, setActiveCart, setPlayActions, playActions }) {
   function handleCard() {
-    console.log(character.id);
-    console.log(character.name);
-    setHidden(true);
+    setPlayActions([...playActions, character.name]);
+    setActiveCart(true);
   }
-  if (hidden) {
-    return <ActiveCart character={character} setHidden={setHidden} />;
-  } else {
-    return (
-      <CardStyled
-        onClick={handleCard}
-        className="animate__animated animate__flipInY"
-      ></CardStyled>
-    );
-  }
+  return (
+    <CardStyled
+      onClick={handleCard}
+      className="animate__animated animate__flipInY"
+    ></CardStyled>
+  );
 }
 
 export default HiddenCart;

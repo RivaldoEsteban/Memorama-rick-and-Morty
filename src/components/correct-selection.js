@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ButtonStyled } from "./button";
 import { Context } from "../App";
@@ -19,6 +19,7 @@ const CorrectSelectionStyled = styled.div`
   left: calc(50% - (36.87rem / 2));
   z-index: 5;
   box-sizing: border-box;
+  display: none;
   h2 {
     font: var(--subtitle1);
   }
@@ -34,20 +35,28 @@ const CorrectSelectionStyled = styled.div`
   }
 `;
 
-function CorrectSelection() {
+function CorrectSelection({ setActiveCart }) {
   const context = useContext(Context);
-  console.log(context);
-  // useEffect(handleClick, []);
-  function handleClick() {
-    const modal = document.getElementById("modalCorrect");
-    context.ref.points.textContent = "100";
-    modal.style.display = "none";
+  const correct = useRef(null);
+  useEffect(() => {
+    context.modal = { ...context.modal, correct };
+  }, [correct]);
+
+  // function handleClick() {
+  //   const modal = document.getElementById("modalCorrect");
+  //   context.ref.points.textContent = "100";
+  //   modal.style.display = "none";
+  // }
+  function handleHiddenModal() {
+    context.ref.points.textContent =
+      Number(context.ref.points.textContent) + 100;
+    correct.current.style.display = "none";
   }
   return (
-    <CorrectSelectionStyled onClick={handleClick} id="modalCorrect">
+    <CorrectSelectionStyled ref={correct}>
       <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
-      <h2>¡Felicidades!, has encontrado un par.</h2>
-      <ButtonStyled>continuar</ButtonStyled>
+      <h2>¡Felicidades!, has encontrado un par. Ganaste 100 puntos.</h2>
+      <ButtonStyled onClick={handleHiddenModal}>continuar</ButtonStyled>
     </CorrectSelectionStyled>
   );
 }

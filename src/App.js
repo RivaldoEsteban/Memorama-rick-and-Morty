@@ -4,6 +4,7 @@ import getCharacters from "./services/getCharacters";
 import StartGameModal from "./components/start-game-modal";
 import HomePage from "./components/home-page";
 import styled from "styled-components";
+import CorrectSelectionStyled from "./components/correct-selection";
 const AppStyled = styled.div`
   .wrapper {
     max-width: 1366px;
@@ -34,6 +35,8 @@ function App() {
         setCharacters,
       }}
     >
+      {" "}
+      <CorrectSelectionStyled />
       <AppStyled id="page">
         {play ? <HomePage /> : <StartGameModal setPlay={setPlay} />}
       </AppStyled>

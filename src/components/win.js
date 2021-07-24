@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ButtonStyled } from "./button";
 import { Context } from "../App";
@@ -19,6 +19,8 @@ const WinStyled = styled.div`
   left: calc(50% - (36.87rem / 2));
   z-index: 5;
   box-sizing: border-box;
+  display: none;
+
   h2 {
     font: var(--subtitle1);
   }
@@ -36,9 +38,14 @@ const WinStyled = styled.div`
 
 function Win() {
   const context = useContext(Context);
+  const win = useRef(null);
+
+  useEffect(() => {
+    context.modal = { ...context.modal, win };
+  }, [win]);
 
   return (
-    <WinStyled>
+    <WinStyled ref={win}>
       <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
       <h2>¡Felicidades!, has completado el juego.</h2>
       <ButtonStyled>siguiente nivel</ButtonStyled>
