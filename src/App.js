@@ -26,7 +26,8 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [characters]);
+
   return (
     <Context.Provider
       value={{
@@ -35,7 +36,6 @@ function App() {
         setCharacters,
       }}
     >
-      {" "}
       <CorrectSelectionStyled />
       <AppStyled id="page">
         {play ? <HomePage /> : <StartGameModal setPlay={setPlay} />}

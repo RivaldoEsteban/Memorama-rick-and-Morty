@@ -36,7 +36,7 @@ const IncorrectSelectStyled = styled.div`
   }
 `;
 
-function IncorrectSelect({ setActiveCart }) {
+function IncorrectSelect({ setActiveCart, setPlayActions }) {
   const context = useContext(Context);
   const incorrect = useRef(null);
   useEffect(() => {
@@ -44,7 +44,6 @@ function IncorrectSelect({ setActiveCart }) {
   }, [incorrect]);
 
   function handleCLick() {
-    const modal = document.getElementById("incorrect");
     if (
       Number(
         context.ref.lives.textContent && Number(context.ref.points.textContent)
@@ -53,9 +52,10 @@ function IncorrectSelect({ setActiveCart }) {
       context.ref.lives.textContent = Number(context.ref.lives.textContent) - 1;
       context.ref.points.textContent =
         Number(context.ref.points.textContent) - 100;
-      setActiveCart(false);
     }
+    setActiveCart(false);
   }
+
   return (
     <IncorrectSelectStyled onClick={handleCLick} id="incorrect" ref={incorrect}>
       <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />

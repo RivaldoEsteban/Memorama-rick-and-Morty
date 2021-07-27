@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import IncorrectSelect from "./incorrect-select";
-import CorrectSelection from "./correct-selection";
 import { Context } from "../App";
+import CorrectSelection from "./correct-selection";
+import IncorrectSelect from "./incorrect-select";
 
 const ActiveCartStyled = styled.div`
   inline-size: 17.5rem;
@@ -76,17 +76,16 @@ const ActiveCartStyled = styled.div`
   }
 `;
 
-function ActiveCart({ character, setActiveCart, setPlayActions, playActions }) {
+function ActiveCart({ character, playActions, setPlayActions, setActiveCart }) {
   const context = useContext(Context);
-  const [modal, setModal] = useState();
-  // const win = context.modal.win.current;
-  const lose = context.modal.lose.current;
   const correct = context.modal.correct.current;
   const incorrect = context.modal.incorrect.current;
+  const lose = context.modal.lose.current;
+
   if (Number(context.ref.lives.textContent) === 0) {
-    setActiveCart(false);
-    setPlayActions([]);
     lose.style.display = "flex";
+    setPlayActions([]);
+    setActiveCart(false);
   }
 
   if (playActions.length === 2) {
@@ -94,7 +93,6 @@ function ActiveCart({ character, setActiveCart, setPlayActions, playActions }) {
     const element2 = playActions[1];
     if (element1 === element2) {
       console.log("ganaste");
-      setPlayActions([]);
       correct.style.display = "flex";
     } else {
       incorrect.style.display = "flex";
@@ -102,17 +100,18 @@ function ActiveCart({ character, setActiveCart, setPlayActions, playActions }) {
       console.log("perdiste");
     }
   }
-  function handleCard() {
-    // setActiveCart(false);
-  }
+
   return (
     <>
-      <CorrectSelection setActiveCart={setActiveCart} />
-      <IncorrectSelect setActiveCart={setActiveCart} />
-      <ActiveCartStyled
-        className="animate__animated animate__flipInY"
-        onClick={handleCard}
-      >
+      <CorrectSelection
+        setActiveCart={setActiveCart}
+        setPlayActions={setPlayActions}
+      />
+      <IncorrectSelect
+        setActiveCart={setActiveCart}
+        setPlayActions={setPlayActions}
+      />
+      <ActiveCartStyled className="animate__animated animate__flipInY">
         <button>{character.species}</button>
         <img className="image-personage" src={character.image} alt="" />
         <div className="information">

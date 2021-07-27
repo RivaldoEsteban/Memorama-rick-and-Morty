@@ -42,7 +42,7 @@ function Win() {
 
   useEffect(() => {
     context.modal = { ...context.modal, win };
-  }, [win]);
+  });
 
   return (
     <WinStyled ref={win}>

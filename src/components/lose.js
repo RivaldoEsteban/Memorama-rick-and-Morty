@@ -41,10 +41,11 @@ function Lose() {
   useEffect(() => {
     context.modal = { ...context.modal, lose };
   }, [lose]);
-
+  console.log(context);
   function handleClick() {
     context.ref.lives.textContent = 3;
     context.ref.points.textContent = 300;
+    // setActiveCart(false);
     lose.current.style.display = "none";
   }
   return (

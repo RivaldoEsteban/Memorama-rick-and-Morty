@@ -35,23 +35,22 @@ const CorrectSelectionStyled = styled.div`
   }
 `;
 
-function CorrectSelection({ setActiveCart }) {
+function CorrectSelection({ setActiveCart, setPlayActions }) {
   const context = useContext(Context);
   const correct = useRef(null);
+
   useEffect(() => {
     context.modal = { ...context.modal, correct };
   }, [correct]);
 
-  // function handleClick() {
-  //   const modal = document.getElementById("modalCorrect");
-  //   context.ref.points.textContent = "100";
-  //   modal.style.display = "none";
-  // }
   function handleHiddenModal() {
     context.ref.points.textContent =
       Number(context.ref.points.textContent) + 100;
     correct.current.style.display = "none";
+    setPlayActions([]);
+    setActiveCart(true);
   }
+
   return (
     <CorrectSelectionStyled ref={correct}>
       <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />

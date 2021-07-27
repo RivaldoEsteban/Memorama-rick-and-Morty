@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ActiveCart from "./active-cart";
 
 const CardStyled = styled.div`
   inline-size: 17.5rem;

@@ -23,12 +23,10 @@ function Main() {
   const context = useContext(Context);
   const [playActions, setPlayActions] = useState([]);
   // const random = context.value.sort(() => Math.random() - 0.5);
-  const random = context.value;
-  console.log(playActions);
 
   return (
     <MainStyled>
-      {random.map((character) => {
+      {context.value.map((character) => {
         return (
           <Cart
             key={character.id}
@@ -38,10 +36,10 @@ function Main() {
           />
         );
       })}
-      {random.map((character) => {
+      {context.value.map((character) => {
         return (
           <Cart
-            key={character.id}
+            key={character.name}
             character={character}
             setPlayActions={setPlayActions}
             playActions={playActions}
@@ -53,17 +51,3 @@ function Main() {
 }
 
 export default Main;
-
-{
-  /* <div onClick={handleCart1}>
-  {tarjeta ? (
-    <ActiveCart
-      characterData={personage1}
-      setCardActive={setCardActive}
-      setTarjeta={setTarjeta}
-    />
-  ) : (
-    <HiddenCart setCardActive={setCardActive} />
-  )}
-</div>; */
-}

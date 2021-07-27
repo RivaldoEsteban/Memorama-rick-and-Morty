@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Header from "./header";
 import Main from "./main";
-import CorrectSelectionStyled from "./correct-selection";
+import CorrectSelection from "./correct-selection";
 import IncorrectSelect from "./incorrect-select";
-import Win from "./win";
 import Lose from "./lose";
 
 const HomePageStyled = styled.div`
@@ -15,20 +14,14 @@ const HomePageStyled = styled.div`
 `;
 
 function HomePage() {
-  const container = useRef(null);
-  const [containerPage, setContainerPage] = useState();
-  useEffect(() => {
-    setContainerPage(container.current);
-  }, [containerPage]);
   return (
     <HomePageStyled>
-      <CorrectSelectionStyled containerPage={containerPage} />
-      <IncorrectSelect containerPage={containerPage} />
-      <Win containerPage={containerPage} />
-      <Lose containerPage={containerPage} />
-      <div className="wrapper" ref={container}>
+      <CorrectSelection />
+      <IncorrectSelect />
+      <Lose />
+      <div className="wrapper">
         <Header />
-        <Main containerPage={containerPage} />
+        <Main />
       </div>
     </HomePageStyled>
   );
