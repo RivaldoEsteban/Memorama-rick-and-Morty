@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Memorama-rick-and-Morty/static/css/main.0e1ce0b7.chunk.css",
-    "main.js": "/Memorama-rick-and-Morty/static/js/main.19d9bf41.chunk.js",
-    "main.js.map": "/Memorama-rick-and-Morty/static/js/main.19d9bf41.chunk.js.map",
+    "main.js": "/Memorama-rick-and-Morty/static/js/main.ec2f1a63.chunk.js",
+    "main.js.map": "/Memorama-rick-and-Morty/static/js/main.ec2f1a63.chunk.js.map",
     "runtime-main.js": "/Memorama-rick-and-Morty/static/js/runtime-main.de6b3cbc.js",
     "runtime-main.js.map": "/Memorama-rick-and-Morty/static/js/runtime-main.de6b3cbc.js.map",
     "static/js/2.42449f88.chunk.js": "/Memorama-rick-and-Morty/static/js/2.42449f88.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.de6b3cbc.js",
     "static/js/2.42449f88.chunk.js",
     "static/css/main.0e1ce0b7.chunk.css",
-    "static/js/main.19d9bf41.chunk.js"
+    "static/js/main.ec2f1a63.chunk.js"
   ]
 }
